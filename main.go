@@ -19,10 +19,10 @@ type Scoreboard struct {
 
 var PairList []Scoreboard
 
-func rollDice() int {
+func rollDice(arrayOfInt []int) int {
 	rand.Seed(time.Now().UnixNano())
 
-	return dice[rand.Intn(len(dice))]
+	return arrayOfInt[rand.Intn(len(arrayOfInt))]
 }
 
 func main() {
@@ -55,7 +55,7 @@ func main() {
 			fmt.Printf("player %s rolled out the dice . . . ", player)
 			time.Sleep(2000 * time.Millisecond)
 
-			point := rollDice()
+			point := rollDice(dice)
 			fmt.Printf("Got %v!\n", point)
 
 			if point%2 == 1 {
